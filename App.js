@@ -9,15 +9,17 @@ export default function App({ isDisabled = true, onFocus }) {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Text>Text Input</Text>
-      <MyTextInput onFocus={onFocus} value={value} editable={!isDisabled} />
+      <MyTextInput
+        accessibilityRole="text"
+        onFocus={onFocus}
+        value={value}
+        editable={!isDisabled}
+      />
     </View>
   );
 }
 
-const MyTextInput = styled.TextInput.attrs((props) => ({
-  accessibilityRole: "text",
-  ...props,
-}))`
+const MyTextInput = styled.TextInput`
   border: 1px solid red;
   width: 200px;
 `;
